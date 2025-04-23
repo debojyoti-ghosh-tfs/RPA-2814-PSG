@@ -1,0 +1,335 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SmartSheet_AttachInvoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sa="clr-namespace:Smartsheet.Api;assembly=smartsheet-csharp-sdk" xmlns:sam="clr-namespace:Smartsheet.Api.Models;assembly=smartsheet-csharp-sdk" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ubac="clr-namespace:UiPath.BAF.Activities.ContextModel;assembly=UiPath.Smartsheet.Activities" xmlns:ubme="clr-namespace:UiPath.BAF.Models.Entity;assembly=UiPath.Smartsheet" xmlns:ubmr="clr-namespace:UiPath.BAF.Models.Response;assembly=UiPath.Smartsheet" xmlns:ubt="clr-namespace:UiPath.BAF.Telemetry;assembly=UiPath.Smartsheet" xmlns:ucm="clr-namespace:UiPath.CodeGen.Model;assembly=UiPath.Smartsheet" xmlns:ucmc="clr-namespace:UiPath.CodeGen.Models.Connection;assembly=UiPath.Smartsheet" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPath.Smartsheet.Activities;assembly=UiPath.Smartsheet.Activities" xmlns:usac="clr-namespace:UiPath.Smartsheet.Activities.Comments;assembly=UiPath.Smartsheet.Activities" xmlns:usae="clr-namespace:UiPath.Smartsheet.Activities.Enums;assembly=UiPath.Smartsheet.Activities" xmlns:usm="clr-namespace:UiPath.Smartsheet.Models;assembly=UiPath.Smartsheet" xmlns:uss="clr-namespace:UiPath.Smartsheet.Services;assembly=UiPath.Smartsheet" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SmartsheetID" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_SmartsheetAPIToken" Type="InArgument(x:String)" />
+    <x:Property Name="in_AttachmentFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_RowID" Type="InArgument(x:String)" />
+    <x:Property Name="in_CatalystID" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>886,2957.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SmartSheet_AttachInvoice_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="96">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Smartsheet.Api.Models</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>UiPath.BAF.Activities.ContextModel</x:String>
+      <x:String>UiPath.BAF.Enums</x:String>
+      <x:String>UiPath.BAF.Models</x:String>
+      <x:String>UiPath.BAF.Models.Connection</x:String>
+      <x:String>UiPath.BAF.Models.Connection.APIConnection</x:String>
+      <x:String>UiPath.BAF.Models.CrudOperation</x:String>
+      <x:String>UiPath.BAF.Models.Entity</x:String>
+      <x:String>UiPath.BAF.Models.Response</x:String>
+      <x:String>UiPath.BAF.ServiceInterfaces</x:String>
+      <x:String>UiPath.BAF.Telemetry</x:String>
+      <x:String>UiPath.CodeGen.Activities</x:String>
+      <x:String>UiPath.CodeGen.Models.Connection</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Smartsheet.Activities</x:String>
+      <x:String>UiPath.Smartsheet.Activities.Comments</x:String>
+      <x:String>UiPath.Smartsheet.Activities.Sheets</x:String>
+      <x:String>UiPath.Smartsheet.Models</x:String>
+      <x:String>UiPath.Swagger.Models</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>smartsheet-csharp-sdk</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Smartsheet</AssemblyReference>
+      <AssemblyReference>UiPath.Smartsheet.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SmartSheet_AttachInvoice" sap:VirtualizedContainerService.HintSize="727.3333333333334,2892.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_RowID" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_InvoiceAttached" />
+      <Variable x:TypeArguments="x:Int32" Name="int_TimeCounter" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Starting Log Message" sap:VirtualizedContainerService.HintSize="665.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;SmartSheet_AttachInvoice execution started.&quot;]" />
+    <Assign DisplayName="Assign bool_InvoiceAttached as True" sap:VirtualizedContainerService.HintSize="665.3333333333334,63.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[bool_InvoiceAttached]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign int_TimeCounter as 0" sap:VirtualizedContainerService.HintSize="665.3333333333334,63.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[int_TimeCounter]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_InvoiceAttached and int_TimeCounter&lt;10]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="665.6,1688" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+      <ui:InterruptibleDoWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="630.4,1520.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <usa:SmartsheetScopeActivity Connection="{x:Null}" DesignConnectionRequest="{x:Null}" ExistingConnection="{x:Null}" SelectedDesignAuthType="{x:Null}" SwaggerClient="{x:Null}" DesignConnectionEnabled="False" DisplayName="Smartsheet Billback File scope" ExistingConnectionType="usm:SmartsheetConnection" sap:VirtualizedContainerService.HintSize="587.2,1431.2" sap2010:WorkflowViewState.IdRef="SmartsheetScopeActivity_1" RefreshCacheEnabled="False" SelectedAuthType="API Token" TelemetryEnabled="False" ThrowExceptionOnError="False">
+            <usa:SmartsheetScopeActivity.Body>
+              <ActivityAction x:TypeArguments="ubac:ScopeActivityContext">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ubac:ScopeActivityContext" Name="ScopeActivityContext" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Billback Smartsheet" sap:VirtualizedContainerService.HintSize="553.6,1288" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sam:SearchResultItem[]" Name="str_SearchResults" />
+                    <Variable x:TypeArguments="x:String" Name="str_Result" />
+                    <Variable x:TypeArguments="ubmr:ResponseStatus" Name="ResponseStatus" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <usac:AttachFile BusinessEntityName="{x:Null}" ScopeActivityType="{x:Null}" ConfiguredBusinessEntity="AttachFile" CrudOperation="Function" DesignConnectionEnabled="False" DisplayName="Attach File Processed Row" sap:VirtualizedContainerService.HintSize="510.4,236.8" sap2010:WorkflowViewState.IdRef="AttachFile_1" Status="[ResponseStatus]">
+                    <usac:AttachFile.BusinessEntity>
+                      <ubme:BusinessEntity AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Metadata="{x:Reference __ReferenceID0}" Name="AttachFile">
+                        <ubme:BusinessEntity.AllFields>
+                          <scg:List x:TypeArguments="ubme:EntityField" Capacity="0" />
+                        </ubme:BusinessEntity.AllFields>
+                        <ubme:BusinessEntity.EntityMetadata>
+                          <ubme:EntityMetadata Description="{x:Null}" PrimaryFields="{x:Null}" EligibleOperations="-1" IsCustomEntity="False" Name="AttachFile">
+                            <ubme:EntityMetadata.Metadata>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0">
+                                <x:Type Type="sa:SmartsheetClient" x:Key="Client" />
+                              </scg:Dictionary>
+                            </ubme:EntityMetadata.Metadata>
+                          </ubme:EntityMetadata>
+                        </ubme:BusinessEntity.EntityMetadata>
+                        <ubme:BusinessEntity.SelectedFields>
+                          <scg:List x:TypeArguments="ubme:EntityField" Capacity="0" />
+                        </ubme:BusinessEntity.SelectedFields>
+                        <ubme:BusinessEntity.TelemetryProperties>
+                          <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                        </ubme:BusinessEntity.TelemetryProperties>
+                      </ubme:BusinessEntity>
+                    </usac:AttachFile.BusinessEntity>
+                    <usac:AttachFile.PopulatedAPIParameters>
+                      <scg:Dictionary x:TypeArguments="x:String, ubme:EntityField" />
+                    </usac:AttachFile.PopulatedAPIParameters>
+                    <usac:AttachFile.SelectedFields>
+                      <scg:List x:TypeArguments="ubme:EntityField" Capacity="8">
+                        <ucm:CodeGenEntityField x:TypeArguments="usae:ResourceType" ArgumentValue="{x:Null}" ContainingType="{x:Null}" FieldFullName="{x:Null}" InArgumentValue="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" ArgumentDirection="In" ArgumentType="usae:ResourceType" DataType="ResourceType" Description="The type of object to attach the file to" DisplayName="Parent Type" FieldName="Parent Type" FormDataType="ComboBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_1" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" ShouldFilterOnChange="True">
+                          <ucm:CodeGenEntityField.DefaultValue>
+                            <usae:ResourceType>Sheet</usae:ResourceType>
+                          </ucm:CodeGenEntityField.DefaultValue>
+                          <ucm:CodeGenEntityField.Value>
+                            <usae:ResourceType>Row</usae:ResourceType>
+                          </ucm:CodeGenEntityField.Value>
+                        </ucm:CodeGenEntityField>
+                        <ucm:CodeGenEntityField x:TypeArguments="x:Int64" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:Int64" DataType="Int64" Description="the sheetId" DisplayName="SheetId" FieldName="SheetId" FormDataType="ExpressionTextBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_2" InArgumentValue="[Convert.ToInt64(in_SmartsheetID)]" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="True" ShouldFilterOnChange="False">
+                          <ucm:CodeGenEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:Int64">[Convert.ToInt64(in_SmartsheetID)]</InArgument>
+                          </ucm:CodeGenEntityField.ArgumentValue>
+                        </ucm:CodeGenEntityField>
+                        <ucm:CodeGenEntityField x:TypeArguments="x:String" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="the file path" DisplayName="File" FieldName="File" FormDataType="FilePicker" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_3" InArgumentValue="[in_AttachmentFilePath]" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="True" ShouldFilterOnChange="False">
+                          <ucm:CodeGenEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[in_AttachmentFilePath]</InArgument>
+                          </ucm:CodeGenEntityField.ArgumentValue>
+                        </ucm:CodeGenEntityField>
+                        <ucm:CodeGenEntityField x:TypeArguments="x:Int64" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:Int64" DataType="Int64" Description="the row Id" DisplayName="RowId" FieldName="RowId" FormDataType="ExpressionTextBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_4" InArgumentValue="[Convert.ToInt64(in_RowID)]" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="True" ShouldFilterOnChange="False">
+                          <ucm:CodeGenEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:Int64">[Convert.ToInt64(in_RowID)]</InArgument>
+                          </ucm:CodeGenEntityField.ArgumentValue>
+                        </ucm:CodeGenEntityField>
+                        <ucm:CodeGenEntityField x:TypeArguments="x:Boolean" ArgumentValue="{x:Null}" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InArgumentValue="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:Boolean" DataType="Boolean" Description="Upload as a new version" DisplayName="Attach as new version" FieldName="Attach as new version" FormDataType="ExpressionTextBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_5" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" ShouldFilterOnChange="False" />
+                        <ucm:CodeGenEntityField x:TypeArguments="x:Int64" ArgumentValue="{x:Null}" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InArgumentValue="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:Int64" DataType="Int64" Description="The id of the attachment to attach as new" DisplayName="Attachment Id" FieldName="Attachment Id for attach as new" FormDataType="ExpressionTextBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_6" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" ShouldFilterOnChange="False" />
+                        <ucm:CodeGenEntityField x:TypeArguments="sam:Attachment" ArgumentValue="{x:Null}" ContainingType="{x:Null}" DefaultValue="{x:Null}" FieldFullName="{x:Null}" InArgumentValue="{x:Null}" InOutArgumentValue="{x:Null}" Metadata="{x:Null}" OriginalArgumentType="{x:Null}" OutArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="Out" ArgumentType="sam:Attachment" DataType="Attachment" Description="The created attachment" DisplayName="Attachment" FieldName="Attachment" FormDataType="ExpressionTextBox" sap2010:WorkflowViewState.IdRef="CodeGenEntityField`1_7" IsCustomField="False" IsDefault="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" ShouldFilterOnChange="False" />
+                      </scg:List>
+                    </usac:AttachFile.SelectedFields>
+                    <usac:AttachFile.ServiceFactory>
+                      <uss:SmartsheetServiceFactory />
+                    </usac:AttachFile.ServiceFactory>
+                    <usac:AttachFile.TelemetryProperties>
+                      <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                    </usac:AttachFile.TelemetryProperties>
+                  </usac:AttachFile>
+                  <If Condition="[ResponseStatus.Success]" DisplayName="If Invoice Attahment Succesfull" sap:VirtualizedContainerService.HintSize="510.4,921.6" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476.8,304" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Attachment success Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Downloaded Invoice attached successfully for Invoice Number &quot;+in_CatalystID]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bool_InvoiceAttached]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476.8,434.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                        <ui:LogMessage DisplayName="Attachment success Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Exception occured while attaching invoice to Invoice Number &quot;+in_CatalystID]" />
+                        <Assign DisplayName="Increment Time Counter" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[int_TimeCounter]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[int_TimeCounter+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </usa:SmartsheetScopeActivity.Body>
+            <usa:SmartsheetScopeActivity.ConnectionParameters>
+              <scg:List x:TypeArguments="ucmc:ConnectionParam" Capacity="4">
+                <ucmc:ConnectionParam x:TypeArguments="x:String" Value="{x:Null}" ArgumentDirection="In" ArgumentType="x:String" Description="The API token to use" GenericArgumentValue="[in_SmartsheetAPIToken]" Mandatory="True" Name="API Access Token">
+                  <ucmc:ConnectionParam.ArgumentValue>
+                    <InArgument x:TypeArguments="x:String">[in_SmartsheetAPIToken]</InArgument>
+                  </ucmc:ConnectionParam.ArgumentValue>
+                </ucmc:ConnectionParam>
+              </scg:List>
+            </usa:SmartsheetScopeActivity.ConnectionParameters>
+            <usa:SmartsheetScopeActivity.DesignConnectionParameters>
+              <scg:List x:TypeArguments="ucmc:ConnectionParam" Capacity="0" />
+            </usa:SmartsheetScopeActivity.DesignConnectionParameters>
+            <usa:SmartsheetScopeActivity.ServiceFactory>
+              <uss:SmartsheetServiceFactory />
+            </usa:SmartsheetScopeActivity.ServiceFactory>
+            <usa:SmartsheetScopeActivity.SupportedAuthTypes>
+              <scg:List x:TypeArguments="x:String" Capacity="4">
+                <x:String>Existing Connection</x:String>
+                <x:String>OAuth</x:String>
+                <x:String>API Token</x:String>
+                <x:String xml:space="preserve">OAuth Passthrough </x:String>
+              </scg:List>
+            </usa:SmartsheetScopeActivity.SupportedAuthTypes>
+            <usa:SmartsheetScopeActivity.TelemetryProperties>
+              <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+            </usa:SmartsheetScopeActivity.TelemetryProperties>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </usa:SmartsheetScopeActivity>
+        </Sequence>
+      </ui:InterruptibleDoWhile.Body>
+    </ui:InterruptibleDoWhile>
+    <If Condition="[int_TimeCounter &gt;= 10]" DisplayName="If Time limit reached" sap:VirtualizedContainerService.HintSize="665.6,578.4" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="377.6,312.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Exception Log Message" sap:VirtualizedContainerService.HintSize="334.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Exception occured while attaching invoice to Catalyst ID &quot;+in_CatalystID]" />
+          <Throw DisplayName="Attachment Failed Throw" Exception="[new BusinessRuleException(&quot;Exception occured while attaching invoice to Invoice Number &quot;+in_CatalystID)]" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Finishing Log Message" sap:VirtualizedContainerService.HintSize="665.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;SmartSheet_AttachInvoice execution finished.&quot;]" />
+  </Sequence>
+</Activity>

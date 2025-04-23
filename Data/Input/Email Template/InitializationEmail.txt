@@ -1,0 +1,9 @@
+<p>Hi Team,</p>
+
+<p>Bot has stated execution of Billback Invoices.</p>
+
+<p>The execution has started at #0#.</a></p>
+
+<p>Thanks,<br>Robot</p>
+
+<p><i>**** This is an automatic email. Do not reply ****</i></p>

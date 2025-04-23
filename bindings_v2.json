@@ -1,0 +1,54 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "asset",
+      "value": {
+        "folderPath": {
+          "isExpression": true
+        },
+        "name": {
+          "defaultValue": "in_Credential",
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    },
+    {
+      "resource": "queue",
+      "value": {
+        "folderPath": {
+          "isExpression": true
+        },
+        "name": {
+          "defaultValue": "in_Config(\"OrchestratorQueueName\").ToString",
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    },
+    {
+      "resource": "asset",
+      "value": {
+        "folderPath": {
+          "defaultValue": "row(\"OrchestratorAssetFolder\").ToString",
+          "isExpression": true
+        },
+        "name": {
+          "defaultValue": "row(\"Value\").ToString",
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    },
+    {
+      "resource": "queue",
+      "value": {
+        "folderPath": {
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    }
+  ]
+}

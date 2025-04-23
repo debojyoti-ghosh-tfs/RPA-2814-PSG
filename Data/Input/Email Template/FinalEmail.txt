@@ -1,0 +1,11 @@
+<p>Hi Team,</p>
+
+<p>Bot has completed processing of Billback Invoices.</p>
+
+<p>Please refresh the smartsheet to see the updated output.</p>
+
+<p>The execution finished at #0#.</p>
+
+<p>Thanks,<br>Robot</p>
+
+<p><i>**** This is an automatic email. Do not reply ****</i></p>

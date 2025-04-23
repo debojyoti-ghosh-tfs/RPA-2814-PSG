@@ -1,0 +1,11 @@
+<p>Hi Team,</p>
+
+<p>Bot has encountered an error while processing Billback Invoices Process.</p>
+
+<p>Error Details : #0#</p>
+
+<p>Please find attached screenshot for more reference.</p>
+
+<p>Thanks,<br>Robot</p>
+
+<p><i>**** This is an automatic email. Do not reply ****</i></p>
